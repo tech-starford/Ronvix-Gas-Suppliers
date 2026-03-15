@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Account - RonVick Gas Service Limited</title>
+    <meta name="description" content="Manage your account, view orders and wishlist at RonVick Gas.">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../assets/css/my-profile/profile.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div class="container">
+            <div class="top-bar-content">
+                <div class="contact-info">
+                    <span><i class="fas fa-phone-alt"></i> 0788971271</span>
+                    <span><i class="fas fa-phone-alt"></i> 0776511012</span>
+                    <span><i class="fas fa-phone-alt"></i> 0707461309</span>
+                </div>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-whatsapp"></i></a>
+                </div>
+                <div class="user-info">
+                    <span id="userDisplay"></span>
+                    <button id="logoutBtn" style="display:none;">Logout</button>
+                    <a href="#" id="loginLink">Login</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <nav class="navbar">
+                <a href="../index.html" class="logo">
+                    <i class="fas fa-fire"></i>
+                    <span>RonVick Gas</span>
+                </a>
+
+                <div class="nav-links" id="navLinks">
+                    <button class="nav-close" id="navClose">&times;</button>
+                    <a href="../index.html">Home</a>
+                    <a href="../products/index.html">Products</a>
+                    <a href="../services/index.html">Services</a>
+                    <a href="../about/index.html">About</a>
+                    <a href="../contact/index.html">Contact</a>
+                    <div class="mobile-contact">
+                        <a href="tel:0788971271"><i class="fas fa-phone"></i> 0788971271</a>
+                        <a href="tel:0776511012"><i class="fas fa-phone"></i> 0776511012</a>
+                        <a href="tel:0707461309"><i class="fas fa-phone"></i> 0707461309</a>
+                    </div>
+                    <div class="mobile-copyright">
+                        &copy; 2026 RonVick Gas Service Limited
+                    </div>
+                </div>
+
+                <div class="nav-icons">
+                    <!-- User Icon with Dropdown -->
+                    <div class="user-dropdown-container">
+                        <a href="#" class="user-icon" id="userIcon">
+                            <i class="fas fa-user-circle"></i>
+                        </a>
+                        <div class="user-dropdown" id="userDropdown">
+                            <div class="dropdown-header" id="dropdownHeader">Account</div>
+                            <a href="../my-profile/index.html" class="dropdown-item"><i class="fas fa-user"></i> Profile</a>
+                            <a href="../my-profile/orders/index.html" class="dropdown-item"><i class="fas fa-box"></i> Orders</a>
+                            <a href="#" class="dropdown-item" id="dropdownLogout"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                        </div>
+                    </div>
+                    <!-- Cart Icon -->
+                    <a href="../cart/index.html" class="cart-icon">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="cart-count">0</span>
+                    </a>
+                    <div class="hamburger" id="hamburger">
+                        <div class="bar"></div>
+                        <div class="bar"></div>
+                        <div class="bar"></div>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Account Section -->
+    <section class="account-section">
+        <div class="container">
+            <div class="account-header">
+                <h1>My Account</h1>
+                <p>Welcome back, <span id="accountUserName"></span>!</p>
+            </div>
+
+            <div class="account-grid">
+                <!-- Sidebar Navigation -->
+                <div class="account-sidebar">
+                    <div class="sidebar-user">
+                        <div class="sidebar-user-avatar">
+                            <i class="fas fa-user-circle"></i>
+                        </div>
+                        <div class="sidebar-user-info">
+                            <h4 id="sidebarUserName"></h4>
+                            <span id="sidebarUserEmail"></span>
+                        </div>
+                    </div>
+                    <nav class="sidebar-nav">
+                        <a href="#" class="sidebar-link active" data-section="dashboard"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
+                        <a href="#" class="sidebar-link" data-section="profile"><i class="fas fa-user-edit"></i> Profile Information</a>
+                        <a href="#" class="sidebar-link" data-section="orders"><i class="fas fa-box"></i> Order History</a>
+                        <a href="#" class="sidebar-link" data-section="wishlist"><i class="fas fa-heart"></i> Wishlist</a>
+                        <a href="#" class="sidebar-link" data-section="settings"><i class="fas fa-cog"></i> Account Settings</a>
+                    </nav>
+                </div>
+
+                <!-- Main Content Area -->
+                <div class="account-content">
+                    <!-- Dashboard Section -->
+                    <div id="dashboard" class="account-section-content active">
+                        <h2>Dashboard</h2>
+                        <div class="dashboard-stats">
+                            <div class="stat-card">
+                                <div class="stat-icon"><i class="fas fa-box"></i></div>
+                                <div class="stat-info">
+                                    <span class="stat-value" id="orderCount">0</span>
+                                    <span class="stat-label">Total Orders</span>
+                                </div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-icon"><i class="fas fa-heart"></i></div>
+                                <div class="stat-info">
+                                    <span class="stat-value" id="wishlistCount">0</span>
+                                    <span class="stat-label">Wishlist Items</span>
+                                </div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-icon"><i class="fas fa-clock"></i></div>
+                                <div class="stat-info">
+                                    <span class="stat-value" id="memberSince">-</span>
+                                    <span class="stat-label">Member Since</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="recent-orders">
+                            <h3>Recent Orders</h3>
+                            <div id="recentOrdersList" class="orders-list">
+                                <!-- Recent orders will be injected here -->
+                                <p class="no-data">No recent orders.</p>
+                            </div>
+                            <a href="#" class="view-all-link" data-section="orders">View All Orders <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+
+                    <!-- Profile Information Section -->
+                    <div id="profile" class="account-section-content">
+                        <h2>Profile Information</h2>
+                        <div class="profile-info">
+                            <div class="info-group">
+                                <label>Full Name</label>
+                                <p id="profileName"></p>
+                            </div>
+                            <div class="info-group">
+                                <label>Email Address</label>
+                                <p id="profileEmail"></p>
+                            </div>
+                            <div class="info-group">
+                                <label>Phone Number</label>
+                                <p id="profilePhone">Not provided</p>
+                            </div>
+                            <div class="info-group">
+                                <label>Default Address</label>
+                                <p id="profileAddress">Not provided</p>
+                            </div>
+                            <div class="info-group">
+                                <label>Member Since</label>
+                                <p id="profileMemberSince"></p>
+                            </div>
+                            <button class="btn btn-outline edit-profile-btn" id="editProfileBtn">Edit Profile</button>
+                        </div>
+                    </div>
+
+                    <!-- Order History Section -->
+                    <div id="orders" class="account-section-content">
+                        <h2>Order History</h2>
+                        <div id="ordersList" class="orders-list">
+                            <!-- Orders will be injected here -->
+                            <p class="no-data">No orders yet.</p>
+                        </div>
+                    </div>
+
+                    <!-- Wishlist Section -->
+                    <div id="wishlist" class="account-section-content">
+                        <h2>My Wishlist</h2>
+                        <div id="wishlistItems" class="wishlist-grid">
+                            <!-- Wishlist items will be injected here -->
+                            <p class="no-data">Your wishlist is empty.</p>
+                        </div>
+                    </div>
+
+                    <!-- Account Settings Section -->
+                    <div id="settings" class="account-section-content">
+                        <h2>Account Settings</h2>
+                        <form id="settingsForm" class="settings-form">
+                            <div class="form-group">
+                                <label for="settingsName">Full Name</label>
+                                <input type="text" id="settingsName" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="settingsEmail">Email Address</label>
+                                <input type="email" id="settingsEmail" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="settingsPhone">Phone Number</label>
+                                <input type="tel" id="settingsPhone">
+                            </div>
+                            <div class="form-group">
+                                <label for="settingsAddress">Default Address</label>
+                                <textarea id="settingsAddress" rows="3"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="currentPassword">Current Password (required to save changes)</label>
+                                <input type="password" id="currentPassword">
+                            </div>
+                            <div class="form-group">
+                                <label for="newPassword">New Password (leave blank to keep current)</label>
+                                <input type="password" id="newPassword">
+                            </div>
+                            <div class="form-group">
+                                <label for="confirmPassword">Confirm New Password</label>
+                                <input type="password" id="confirmPassword">
+                            </div>
+                            <div class="form-actions">
+                                <button type="submit" class="btn btn-primary">Save Changes</button>
+                                <button type="button" class="btn btn-outline" id="cancelSettings">Cancel</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col footer-about">
+                    <div class="footer-logo">
+                        <i class="fas fa-fire"></i>
+                        <span>RonVick Gas</span>
+                    </div>
+                    <p>Your trusted provider of high-quality gas cylinders and accessories in Kasana Luwero since 2010.</p>
+                    <div class="footer-social">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="../index.html">Home</a></li>
+                        <li><a href="../products/index.html">Products</a></li>
+                        <li><a href="../services/index.html">Services</a></li>
+                        <li><a href="../about/index.html">About Us</a></li>
+                        <li><a href="../contact/index.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Products</h3>
+                    <ul>
+                        <li><a href="../products/index.html#lpg">LPG Cylinders</a></li>
+                        <li><a href="../products/index.html#oxygen">Oxygen Cylinders</a></li>
+                        <li><a href="../products/index.html#accessories">Gas Accessories</a></li>
+                        <li><a href="../products/index.html#safety">Safety Equipment</a></li>
+                        <li><a href="../products/index.html#industrial">Industrial Solutions</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col footer-contact">
+                    <h3>Contact Us</h3>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt"></i><span>Kasana Luwero near MC Petro Station at the mast</span></li>
+                        <li><i class="fas fa-phone"></i><div><a href="tel:0788971271">0788971271</a> <a href="tel:0776511012">0776511012</a> <a href="tel:0707461309">0707461309</a></div></li>
+                        <li><i class="fas fa-envelope"></i><a href="mailto:info@ronvickgas.com">info@ronvickgas.com</a></li>
+                        <li><i class="fas fa-clock"></i><span>Mon-Sat: 8:00 AM - 6:00 PM</span></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="footer-bottom-content">
+                    <p>&copy; 2026 RonVick Gas Service Limited. All Rights Reserved.</p>
+                    <div class="footer-links"><a href="#">Privacy Policy</a><a href="#">Terms of Service</a></div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Mobile Bottom Nav -->
+    <div class="mobile-bottom-nav">
+        <a href="../index.html" class="mobile-nav-item"><i class="fas fa-home"></i><span>Home</span></a>
+        <a href="../products/index.html" class="mobile-nav-item"><i class="fas fa-shopping-bag"></i><span>Products</span></a>
+        <a href="tel:0788971271" class="mobile-nav-item"><i class="fas fa-phone"></i><span>Call Us</span></a>
+        <a href="#" class="mobile-nav-item" id="mobileUserIcon"><i class="fas fa-user"></i><span>Account</span></a>
+        <a href="../cart/index.html" class="mobile-nav-item cart-icon"><i class="fas fa-shopping-cart"></i><span>Cart</span><span class="cart-count">0</span></a>
+    </div>
+
+    <!-- Auth Modal (reused from index) -->
+    <div class="modal" id="authModal">
+        <div class="modal-content auth-modal-content">
+            <button class="modal-close" id="closeAuthModal">&times;</button>
+            <div class="auth-header">
+                <h2>Welcome to RonVick Gas</h2>
+                <p>Sign in to your account or create one to enjoy personalised services</p>
+            </div>
+            <div class="auth-tabs">
+                <button class="auth-tab active" id="loginTab">Login</button>
+                <button class="auth-tab" id="signupTab">Create Account</button>
+            </div>
+            <div class="auth-forms">
+                <!-- Login Form -->
+                <form id="loginForm" class="auth-form active">
+                    <div class="form-group">
+                        <label for="loginEmail">Email Address</label>
+                        <input type="email" id="loginEmail" placeholder="you@example.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="loginPassword">Password</label>
+                        <input type="password" id="loginPassword" placeholder="••••••••" required>
+                    </div>
+                    <div class="form-options">
+                        <label class="remember-me">
+                            <input type="checkbox"> Remember me
+                        </label>
+                        <a href="#" class="forgot-password">Forgot password?</a>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-block">Sign In</button>
+                    <div class="auth-divider">
+                        <span>or continue with</span>
+                    </div>
+                    <div class="social-login">
+                        <button type="button" class="social-btn google"><i class="fab fa-google"></i> Google</button>
+                        <button type="button" class="social-btn facebook"><i class="fab fa-facebook-f"></i> Facebook</button>
+                    </div>
+                </form>
+                <!-- Signup Form -->
+                <form id="signupForm" class="auth-form">
+                    <div class="form-group">
+                        <label for="signupName">Full Name</label>
+                        <input type="text" id="signupName" placeholder="John Doe" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="signupEmail">Email Address</label>
+                        <input type="email" id="signupEmail" placeholder="you@example.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="signupPassword">Password</label>
+                        <input type="password" id="signupPassword" placeholder="Create a password" required>
+                        <small>At least 8 characters</small>
+                    </div>
+                    <div class="form-group">
+                        <label for="signupConfirmPassword">Confirm Password</label>
+                        <input type="password" id="signupConfirmPassword" placeholder="Confirm password" required>
+                    </div>
+                    <div class="form-options">
+                        <label class="terms">
+                            <input type="checkbox" required> I agree to the <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>
+                        </label>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-block">Create Account</button>
+                    <div class="auth-divider">
+                        <span>or sign up with</span>
+                    </div>
+                    <div class="social-login">
+                        <button type="button" class="social-btn google"><i class="fab fa-google"></i> Google</button>
+                        <button type="button" class="social-btn facebook"><i class="fab fa-facebook-f"></i> Facebook</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="../assets/js/main.js"></script>
+    <script type="module" src="../assets/js/account/account.js"></script>
+</body>
+</html>

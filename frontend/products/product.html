@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Products | RonVick Gas</title>
+    <meta name="description" content="Browse our wide selection of gas cylinders and accessories at RonVick Gas Service Limited. Free delivery in Kasana Luwero.">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="/assets/css/main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Top Bar (same as index) -->
+    <div class="top-bar">
+        <div class="container">
+            <div class="top-bar-content">
+                <div class="contact-info">
+                    <span><i class="fas fa-phone-alt"></i> 0788971271</span>
+                    <span><i class="fas fa-phone-alt"></i> 0776511012</span>
+                    <span><i class="fas fa-phone-alt"></i> 0707461309</span>
+                </div>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-whatsapp"></i></a>
+                </div>
+                <div class="user-info">
+                    <span id="userDisplay"></span>
+                    <button id="logoutBtn" style="display:none;">Logout</button>
+                    <a href="#" id="loginLink">Login</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header (same as index, with active class on Products) -->
+    <header class="header">
+        <div class="container">
+            <nav class="navbar">
+                <a href="/" class="logo">
+                    <i class="fas fa-fire"></i>
+                    <span>RonVick Gas</span>
+                </a>
+                
+                <div class="nav-links" id="navLinks">
+                    <button class="nav-close" id="navClose">&times;</button>
+                    <a href="/">Home</a>
+                    <a href="/products/" class="active">Products</a>
+                    <a href="/services/">Services</a>
+                    <a href="/about/">About</a>
+                    <a href="/contact/">Contact</a>
+                    <div class="mobile-contact">
+                        <a href="tel:0788971271"><i class="fas fa-phone"></i> 0788971271</a>
+                        <a href="tel:0776511012"><i class="fas fa-phone"></i> 0776511012</a>
+                        <a href="tel:0707461309"><i class="fas fa-phone"></i> 0707461309</a>
+                    </div>
+                    <div class="mobile-copyright">
+                        &copy; 2026 RonVick Gas Service Limited
+                    </div>
+                </div>
+                
+                <div class="nav-icons">
+                    <div class="user-dropdown-container">
+                        <a href="#" class="user-icon" id="userIcon">
+                            <i class="fas fa-user-circle"></i>
+                        </a>
+                        <div class="user-dropdown" id="userDropdown">
+                            <div class="dropdown-header" id="dropdownHeader">Account</div>
+                            <a href="/account/" class="dropdown-item"><i class="fas fa-user"></i> Profile</a>
+                            <a href="/orders/" class="dropdown-item"><i class="fas fa-box"></i> Orders</a>
+                            <a href="#" class="dropdown-item" id="dropdownLogout"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                        </div>
+                    </div>
+                    <a href="/cart/" class="cart-icon">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="cart-count">0</span>
+                    </a>
+                    <div class="hamburger" id="hamburger">
+                        <div class="bar"></div>
+                        <div class="bar"></div>
+                        <div class="bar"></div>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Products Page Content -->
+    <main class="products-page">
+        <div class="container">
+            <!-- Page Header -->
+            <div class="page-header">
+                <h1>Our Gas Products</h1>
+                <div class="breadcrumb">
+                    <a href="/">Home</a>
+                    <span>/</span>
+                    <span>Products</span>
+                </div>
+            </div>
+
+            <div class="products-content">
+                <!-- Filter Toggle Button (Mobile Only) -->
+                <button class="filter-toggle" id="filterToggle">
+                    <i class="fas fa-filter"></i> Filters
+                </button>
+
+                <!-- Sidebar Filters -->
+                <aside class="products-sidebar" id="productsSidebar">
+                    <div class="sidebar-header">
+                        <h3>Filters</h3>
+                        <button class="sidebar-close" id="sidebarClose">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+
+                    <!-- Search Filter -->
+                    <div class="filter-section">
+                        <h4 class="filter-title">Search</h4>
+                        <div class="filter-content">
+                            <div class="search-box">
+                                <input type="text" id="searchInput" placeholder="Search products...">
+                                <button id="searchBtn"><i class="fas fa-search"></i></button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Categories Filter -->
+                    <div class="filter-section">
+                        <h4 class="filter-title">Categories</h4>
+                        <div class="filter-content">
+                            <ul class="filter-list" id="categoryFilter">
+                                <!-- Categories will be populated by JS -->
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Price Range Filter -->
+                    <div class="filter-section">
+                        <h4 class="filter-title">Price Range (UGX)</h4>
+                        <div class="filter-content">
+                            <div class="price-range">
+                                <div class="price-slider">
+                                    <input type="range" min="0" max="1000000" value="500000" step="10000" id="priceRange">
+                                </div>
+                                <div class="price-inputs">
+                                    <div class="price-input">
+                                        <label>Min</label>
+                                        <input type="number" value="0" min="0" max="1000000" id="minPrice">
+                                    </div>
+                                    <div class="price-input">
+                                        <label>Max</label>
+                                        <input type="number" value="1000000" min="0" max="1000000" id="maxPrice">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Brand Filter -->
+                    <div class="filter-section">
+                        <h4 class="filter-title">Brand</h4>
+                        <div class="filter-content">
+                            <ul class="filter-list" id="brandFilter"></ul>
+                        </div>
+                    </div>
+
+                    <!-- Availability Filter -->
+                    <div class="filter-section">
+                        <h4 class="filter-title">Availability</h4>
+                        <div class="filter-content">
+                            <ul class="filter-list" id="availabilityFilter"></ul>
+                        </div>
+                    </div>
+
+                    <!-- Rating Filter -->
+                    <div class="filter-section">
+                        <h4 class="filter-title">Rating</h4>
+                        <div class="filter-content">
+                            <ul class="filter-list" id="ratingFilter"></ul>
+                        </div>
+                    </div>
+
+                    <button class="btn btn-primary apply-filters" id="applyFilters">Apply Filters</button>
+                    <button class="btn btn-outline reset-filters" id="resetFilters">Reset Filters</button>
+                </aside>
+
+                <!-- Main Products Grid -->
+                <div class="products-main">
+                    <!-- Products Sorting -->
+                    <div class="products-sorting">
+                        <div class="sorting-left">
+                            <p>Showing <span id="showingStart">1</span>-<span id="showingEnd">12</span> of <span id="totalProducts">0</span> products</p>
+                        </div>
+                        <div class="sorting-right">
+                            <div class="sort-by">
+                                <label>Sort by:</label>
+                                <select id="sortSelect">
+                                    <option value="default">Default</option>
+                                    <option value="price_asc">Price: Low to High</option>
+                                    <option value="price_desc">Price: High to Low</option>
+                                    <option value="popular">Most Popular</option>
+                                    <option value="rating">Highest Rating</option>
+                                    <option value="newest">Newest</option>
+                                </select>
+                            </div>
+                            <div class="view-mode">
+                                <button class="view-btn active" data-view="grid"><i class="fas fa-th"></i></button>
+                                <button class="view-btn" data-view="list"><i class="fas fa-list"></i></button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Products Grid -->
+                    <div class="products-grid" id="productsGrid">
+                        <div class="loading-spinner">Loading products...</div>
+                    </div>
+
+                    <!-- Pagination -->
+                    <div class="pagination" id="pagination"></div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer, Mobile Bottom Nav, Modals (same as index) -->
+    <footer class="footer">...</footer> <!-- copy from index.html -->
+    <div class="mobile-bottom-nav">...</div> <!-- copy from index.html -->
+    <div class="modal quick-view-modal" id="quickViewModal">...</div> <!-- copy from index.html -->
+    <div class="modal" id="authModal">...</div> <!-- copy from index.html -->
+
+    <script type="module" src="/assets/js/main.js"></script>
+    <script type="module" src="/assets/js/products.js"></script>
+</body>
+</html>

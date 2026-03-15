@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Products - Admin</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../assets/css/admin/admin.css">
+</head>
+<body>
+    <div class="admin-wrapper">
+        <!-- Same sidebar as dashboard -->
+        <aside class="admin-sidebar">
+            <div class="admin-sidebar-header">
+                <div class="logo">
+                    <i class="fas fa-fire"></i>
+                    <span>RonVick Admin</span>
+                </div>
+            </div>
+            <nav class="admin-sidebar-nav">
+                <a href="index.html" class="active"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
+                <a href="products.html"><i class="fas fa-box"></i> Products</a>
+                <a href="orders.html"><i class="fas fa-shopping-cart"></i> Orders</a>
+                <a href="users.html"><i class="fas fa-users"></i> Users</a>
+                <a href="settings.html"><i class="fas fa-cog"></i> Settings</a>
+                <a href="#" id="adminLogout"><i class="fas fa-sign-out-alt"></i> Logout</a>
+            </nav>
+        </aside>
+
+        <main class="admin-main">
+            <div class="admin-top-bar">
+                <div class="admin-page-title">
+                    <h1>Products</h1>
+                </div>
+                <div class="admin-user">
+                    <span id="adminName"></span>
+                    <i class="fas fa-user-circle"></i>
+                </div>
+            </div>
+
+            <div class="admin-content">
+                <div style="display: flex; justify-content: space-between; margin-bottom: 20px;">
+                    <h2>All Products</h2>
+                    <button class="btn btn-primary" onclick="location.href='product-form.html'">Add New Product</button>
+                </div>
+
+                <table class="admin-table">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Image</th>
+                            <th>Name</th>
+                            <th>Price</th>
+                            <th>Category</th>
+                            <th>Stock</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="productsTableBody"></tbody>
+                </table>
+            </div>
+        </main>
+    </div>
+
+    <script type="module" src="../assets/js/main.js"></script>
+    <script type="module" src="js/admin.js"></script>
+</body>
+</html>

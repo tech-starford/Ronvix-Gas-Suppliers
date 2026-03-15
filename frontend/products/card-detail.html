@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Details - RonVick Gas</title>
+    <meta name="description" content="View full details of our gas cylinders and accessories.">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../assets/css/main.css">
+    <link rel="stylesheet" href="../assets/css/products/product-details.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Top Bar (same as before) -->
+    <div class="top-bar">
+        <div class="container">
+            <div class="top-bar-content">
+                <div class="contact-info">
+                    <span><i class="fas fa-phone-alt"></i> 0788971271</span>
+                    <span><i class="fas fa-phone-alt"></i> 0776511012</span>
+                    <span><i class="fas fa-phone-alt"></i> 0707461309</span>
+                </div>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-whatsapp"></i></a>
+                </div>
+                <div class="user-info">
+                    <span id="userDisplay"></span>
+                    <button id="logoutBtn" style="display:none;">Logout</button>
+                    <a href="#" id="loginLink">Login</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header (same as before) -->
+    <header class="header">
+        <div class="container">
+            <nav class="navbar">
+                <a href="/" class="logo">
+                    <i class="fas fa-fire"></i>
+                    <span>RonVick Gas</span>
+                </a>
+                
+                <div class="nav-links" id="navLinks">
+                    <button class="nav-close" id="navClose">&times;</button>
+                    <a href="/">Home</a>
+                    <a href="./" class="active">Products</a>
+                    <a href="../services/">Services</a>
+                    <a href="../about/">About</a>
+                    <a href="../contact/">Contact</a>
+                    <div class="mobile-contact">
+                        <a href="tel:0788971271"><i class="fas fa-phone"></i> 0788971271</a>
+                        <a href="tel:0776511012"><i class="fas fa-phone"></i> 0776511012</a>
+                        <a href="tel:0707461309"><i class="fas fa-phone"></i> 0707461309</a>
+                    </div>
+                    <div class="mobile-copyright">
+                        &copy; 2026 RonVick Gas Service Limited
+                    </div>
+                </div>
+                
+                <div class="nav-icons">
+                    <div class="user-dropdown-container">
+                        <a href="#" class="user-icon" id="userIcon">
+                            <i class="fas fa-user-circle"></i>
+                        </a>
+                        <div class="user-dropdown" id="userDropdown">
+                            <div class="dropdown-header" id="dropdownHeader">Account</div>
+                            <a href="../my-profile/index.html" class="dropdown-item"><i class="fas fa-user"></i> Profile</a>
+                            <a href="../my-profile/orders/index.html" class="dropdown-item"><i class="fas fa-box"></i> Orders</a>
+                            <a href="#" class="dropdown-item" id="dropdownLogout"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                        </div>
+                    </div>
+                    <a href="../cart/index.html" class="cart-icon">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="cart-count">0</span>
+                    </a>
+                    <div class="hamburger" id="hamburger">
+                        <div class="bar"></div>
+                        <div class="bar"></div>
+                        <div class="bar"></div>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Product Detail Section -->
+    <section class="product-detail">
+        <div class="container">
+            <div class="product-detail-wrapper" id="productDetailWrapper">
+                <div class="loading-spinner">Loading product...</div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col footer-about">
+                    <div class="footer-logo"><i class="fas fa-fire"></i><span>RonVick Gas</span></div>
+                    <p>Your trusted provider of high-quality gas cylinders and accessories in Kasana Luwero since 2010.</p>
+                    <div class="footer-social">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="./">Home</a></li>
+                        <li><a href="../products/">Products</a></li>
+                        <li><a href="../services/">Services</a></li>
+                        <li><a href="../about/">About Us</a></li>
+                        <li><a href="../contact/">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Products</h3>
+                    <ul>
+                        <li><a href="../products/#lpg">LPG Cylinders</a></li>
+                        <li><a href="../products/#oxygen">Oxygen Cylinders</a></li>
+                        <li><a href="../products/#accessories">Gas Accessories</a></li>
+                        <li><a href="../products/#safety">Safety Equipment</a></li>
+                        <li><a href="../products/#industrial">Industrial Solutions</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col footer-contact">
+                    <h3>Contact Us</h3>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt"></i><span>Kasana Luwero near MC Petro Station at the mast</span></li>
+                        <li><i class="fas fa-phone"></i><div><a href="tel:0788971271">0788971271</a> <a href="tel:0776511012">0776511012</a> <a href="tel:0707461309">0707461309</a></div></li>
+                        <li><i class="fas fa-envelope"></i><a href="mailto:info@ronvickgas.com">info@ronvickgas.com</a></li>
+                        <li><i class="fas fa-clock"></i><span>Mon-Sat: 8:00 AM - 6:00 PM</span></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="footer-bottom-content">
+                    <p>&copy; 2026 RonVick Gas Service Limited. All Rights Reserved.</p>
+                    <div class="footer-links"><a href="#">Privacy Policy</a><a href="#">Terms of Service</a></div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Mobile Bottom Nav -->
+    <div class="mobile-bottom-nav">
+        <a href="/" class="mobile-nav-item active"><i class="fas fa-home"></i><span>Home</span></a>
+        <a href=".../products/" class="mobile-nav-item"><i class="fas fa-shopping-bag"></i><span>Products</span></a>
+        <a href="tel:0788971271" class="mobile-nav-item"><i class="fas fa-phone"></i><span>Call Us</span></a>
+        <a href="#" class="mobile-nav-item" id="mobileUserIcon"><i class="fas fa-user"></i><span>Account</span></a>
+        <a href="../cart/" class="mobile-nav-item cart-icon"><i class="fas fa-shopping-cart"></i><span>Cart</span><span class="cart-count">0</span></a>
+    </div>
+
+    <!-- Quick View Modal -->
+    <div class="modal quick-view-modal" id="quickViewModal">
+        <div class="modal-content">
+            <button class="modal-close">&times;</button>
+            <div class="quick-view-content"></div>
+        </div>
+    </div>
+
+    <!-- Auth Modal -->
+    <div class="modal" id="authModal">
+        <div class="modal-content auth-modal-content">
+            <button class="modal-close" id="closeAuthModal">&times;</button>
+            <div class="auth-header">
+                <h2>Welcome to RonVick Gas</h2>
+                <p>Sign in to your account or create one to enjoy personalised services</p>
+            </div>
+            <div class="auth-tabs">
+                <button class="auth-tab active" id="loginTab">Login</button>
+                <button class="auth-tab" id="signupTab">Create Account</button>
+            </div>
+            <div class="auth-forms">
+                <!-- Login Form -->
+                <form id="loginForm" class="auth-form active">
+                    <div class="form-group">
+                        <label for="loginEmail">Email Address</label>
+                        <input type="email" id="loginEmail" placeholder="you@example.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="loginPassword">Password</label>
+                        <input type="password" id="loginPassword" placeholder="••••••••" required>
+                    </div>
+                    <div class="form-options">
+                        <label class="remember-me">
+                            <input type="checkbox"> Remember me
+                        </label>
+                        <a href="#" class="forgot-password">Forgot password?</a>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-block">Sign In</button>
+                    <div class="auth-divider">
+                        <span>or continue with</span>
+                    </div>
+                    <div class="social-login">
+                        <button type="button" class="social-btn google"><i class="fab fa-google"></i> Google</button>
+                        <button type="button" class="social-btn facebook"><i class="fab fa-facebook-f"></i> Facebook</button>
+                    </div>
+                </form>
+                <!-- Signup Form -->
+                <form id="signupForm" class="auth-form">
+                    <div class="form-group">
+                        <label for="signupName">Full Name</label>
+                        <input type="text" id="signupName" placeholder="John Doe" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="signupEmail">Email Address</label>
+                        <input type="email" id="signupEmail" placeholder="you@example.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="signupPassword">Password</label>
+                        <input type="password" id="signupPassword" placeholder="Create a password" required>
+                        <small>At least 8 characters</small>
+                    </div>
+                    <div class="form-group">
+                        <label for="signupConfirmPassword">Confirm Password</label>
+                        <input type="password" id="signupConfirmPassword" placeholder="Confirm password" required>
+                    </div>
+                    <div class="form-options">
+                        <label class="terms">
+                            <input type="checkbox" required> I agree to the <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>
+                        </label>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-block">Create Account</button>
+                    <div class="auth-divider">
+                        <span>or sign up with</span>
+                    </div>
+                    <div class="social-login">
+                        <button type="button" class="social-btn google"><i class="fab fa-google"></i> Google</button>
+                        <button type="button" class="social-btn facebook"><i class="fab fa-facebook-f"></i> Facebook</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="../assets/js/main.js"></script>
+    <script type="module" src="../assets/js/products/product-detail.js"></script>
+</body>
+</html>

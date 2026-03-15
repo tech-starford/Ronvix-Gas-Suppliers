@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - RonVick Gas</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../assets/css/admin/admin.css">
+</head>
+<body>
+    <div class="admin-wrapper">
+        <!-- Sidebar -->
+        <aside class="admin-sidebar">
+            <div class="admin-sidebar-header">
+                <div class="logo">
+                    <i class="fas fa-fire"></i>
+                    <span>RonVick Admin</span>
+                </div>
+            </div>
+            <nav class="admin-sidebar-nav">
+                <a href="index.html" class="active"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
+                <a href="products.html"><i class="fas fa-box"></i> Products</a>
+                <a href="orders.html"><i class="fas fa-shopping-cart"></i> Orders</a>
+                <a href="users.html"><i class="fas fa-users"></i> Users</a>
+                <a href="settings.html"><i class="fas fa-cog"></i> Settings</a>
+                <a href="#" id="adminLogout"><i class="fas fa-sign-out-alt"></i> Logout</a>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="admin-main">
+            <div class="admin-top-bar">
+                <div class="admin-page-title">
+                    <h1>Dashboard</h1>
+                </div>
+                <div class="admin-user">
+                    <span id="adminName"></span>
+                    <i class="fas fa-user-circle" style="font-size: 32px; color: var(--primary-color);"></i>
+                </div>
+            </div>
+
+            <div class="admin-content">
+                <!-- Stats Cards -->
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon"><i class="fas fa-box"></i></div>
+                        <div class="stat-content">
+                            <h3 id="totalProducts">0</h3>
+                            <p>Total Products</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon"><i class="fas fa-shopping-cart"></i></div>
+                        <div class="stat-content">
+                            <h3 id="totalOrders">0</h3>
+                            <p>Total Orders</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon"><i class="fas fa-users"></i></div>
+                        <div class="stat-content">
+                            <h3 id="totalCustomers">0</h3>
+                            <p>Customers</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon"><i class="fas fa-money-bill-wave"></i></div>
+                        <div class="stat-content">
+                            <h3 id="totalRevenue">UGX 0</h3>
+                            <p>Revenue</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Recent Orders Table -->
+                <h2 style="margin: 30px 0 20px;">Recent Orders</h2>
+                <table class="admin-table">
+                    <thead>
+                        <tr>
+                            <th>Order ID</th>
+                            <th>Customer</th>
+                            <th>Date</th>
+                            <th>Total</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="recentOrdersTable">
+                        <!-- populated by JS -->
+                    </tbody>
+                </table>
+            </div>
+        </main>
+    </div>
+
+    <script type="module" src="../assets/js/main.js"></script>
+    <script type="module" src="../assets/js/admin/index.js"></script>
+</body>
+</html>
