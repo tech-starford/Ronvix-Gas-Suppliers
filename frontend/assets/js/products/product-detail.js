@@ -3,11 +3,11 @@
  * Loads product data from API based on URL parameter (id)
  */
 
-import { addToCart, isLoggedIn } from '../../../main.js';
+import { addToCart, isLoggedIn } from '../maina.js';
 
-const API_BASE_URL = window.location.hostname === 'localhost' 
-    ? 'http://localhost:3000/api' 
-    : 'https://your-production-api.com/api';
+const API_BASE_URL = (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1')
+    ? 'http://localhost:5000/api'
+    : 'https://your-production-domain.com/api';
 
 // Get product ID from URL (supports ?id=123 or /product/123)
 function getProductId() {
@@ -20,7 +20,7 @@ function getProductId() {
 
 async function loadProduct() {
     const productId = getProductId();
-    if (!productId) {
+    if (!productId) {-
         showError('No product specified.');
         return;
     }

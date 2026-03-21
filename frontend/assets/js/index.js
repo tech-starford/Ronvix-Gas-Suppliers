@@ -3,11 +3,12 @@
  * Handles hero slider, testimonials slider, and popular products fetch
  */
 
-import { getCart, addToCart, isLoggedIn, openAuthModal } from '../js/main.js';
+import { getCart, addToCart, isLoggedIn, openAuthModal } from './maina.js';
 
-const API_BASE_URL = window.location.hostname === 'localhost' 
-    ? 'http://localhost:3000/api' 
-    : 'https://your-production-api.com/api';
+// ========== CONFIGURATION ==========
+const API_BASE_URL = (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1')
+    ? 'http://localhost:5000/api'
+    : 'https://your-production-domain.com/api';
 
 // ========== HERO SLIDER ==========
 function initHeroSlider() {

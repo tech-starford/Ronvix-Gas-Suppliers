@@ -3,6 +3,10 @@
  * Handles authentication, user data display, orders, wishlist, and settings.
  */
 
+const API_BASE_URL = window.location.hostname === 'localhost' 
+    ? 'http://localhost:5000/api' 
+    : 'https://your-production-domain.com/api';
+
 const AUTH_TOKEN_KEY = 'authToken';
 const AUTH_USER_KEY = 'authUser';
 const ORDERS_KEY = 'ronvick_orders';

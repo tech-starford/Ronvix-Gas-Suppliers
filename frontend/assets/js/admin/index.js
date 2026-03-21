@@ -2,8 +2,8 @@
 import { isLoggedIn, getUser, logout } from '../../assets/js/main.js';
 
 const API_BASE_URL = window.location.hostname === 'localhost' 
-    ? 'http://localhost:3000/api' 
-    : 'https://your-production-api.com/api';
+    ? 'http://localhost:5000/api' 
+    : 'https://your-production-domain.com/api';
 
 // Check if user is admin (for now, we simulate by checking a special token)
 function isAdmin() {
